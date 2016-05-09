@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class UsertableSeed extends Seeder
+class UserTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,9 +13,9 @@ class UsertableSeed extends Seeder
     {
         factory(App\User::class, 49)->create();
         factory(App\User::class)->create([
-        	'name'=> 'jose'
+        	'name'=> 'jose',
         	'role'=> 'admind'
 
-        	])
+        	]); 
     }
 }
