@@ -18,5 +18,6 @@ $factory->define(App\User::class, function ($faker) {
         'password' => str_random(10),
         'remember_token' => str_random(10),
         'role' => $faker->randomElement(['user', 'editor'])
-           
+
+     ];   
 });
