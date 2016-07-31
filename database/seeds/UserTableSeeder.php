@@ -11,11 +11,19 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\User::class, 49)->create();
-        factory(App\User::class)->create([
-        	'name'=> 'jose',
-        	'role'=> 'admind'
 
-        	]); 
+        /*truncamiento utilizado para poder ejecutar refresh sin eliminar los datos y generar nuevos*/
+        DB::table('users')->truncate();
+ 
+        factory(App\User::class)->create([
+            'name'=> 'jose',
+            'email'=> 'jdani9417@gmail.com',
+            'role'=> 'admind',
+            'password'=> 'admind'
+
+            ]);
+
+        factory(App\User::class, 49)->create();
+
     }
 }
