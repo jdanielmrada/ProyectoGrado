@@ -1,0 +1,76 @@
+
+#main
+{
+ width:50%;
+ margin: 0px auto;
+ border:solid none;
+ background-color:none;
+}
+
+#fieldset
+{ 
+ border:none;
+ width:100%;
+}
+
+.prev, .next
+ {
+  
+  padding:5px 10px;
+  color:#fff;
+  text-decoration:none;
+}
+.prev:hover, .next:hover
+{
+ background-color:#F64A1C;
+ text-decoration:none;
+ color:#fff;
+}
+.prev
+{
+ float:left; 
+}
+.next
+{
+ float:right;
+  margin-right:70%;
+}
+#steps
+{
+ list-style:none;
+  width:100%; overflow:hidden;
+  margin:0px;
+  padding:0px;
+}
+#steps li
+{
+ font-size:24px;
+ float:left;
+ padding:10px;
+ color:#b0b1b3;
+}
+#steps li span 
+{
+ font-size:11px;
+ display:block;
+}
+#steps li.current
+{
+ color:#000;
+}
+
+.input-group .form-control{
+ width: 30%;
+}
+span h2
+{
+ font-size:11px;
+ margin: 0px;
+}
+#in input
+{
+ margin: 20px;
+}
+#inicio .input-group  .form-control {
+ width: 100%;
+}
