@@ -14,6 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::group(['prefix'=>'Administrador'], function(){
+Route::group(['prefix'=>'panel-de-administrador'], function(){
 	Route::resource('users','UsersController');
+	Route::get('users/{id}/destroy',[
+		'uses' => 'UsersController@destroy',
+		'as'	=> 'panel-de-administrador.users.destroy'
+		]);
+Route::resource('clientes','ClientesController');
 });

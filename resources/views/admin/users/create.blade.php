@@ -1,8 +1,8 @@
 @extends('admin.main')
   @section('content')
-  
+
   	<div class="container">
-    {!! Form::open(['route'=>'Administrador.users.store', 'method'=>'POST'])!!}
+    {!! Form::open(['route'=>'panel-de-administrador.users.store', 'method'=>'POST'])!!}
         <fieldset>
         <legend><h2>Adicional nuevo Usuario...</h2></legend>
 

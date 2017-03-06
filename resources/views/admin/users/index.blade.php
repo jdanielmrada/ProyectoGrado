@@ -28,7 +28,7 @@
             		  <td>{{ $user->name }}</td>
             		  <td>{{ $user->email }}</td>
                   <td>
-                    @if($user->role== 'admin')
+                    @if($user->role== 'Administrador')
                        <span class='label label-success'>{{ $user->role }}</span>
                     @else
                       {{ $user->role }}
@@ -36,9 +36,9 @@
             		  </td>
             		  <td>{{ $user->created_at }}</td>
             		  <td>{{ $user->updated_at }}</td>
-            		  <td><a class="btn btn-danger" href="" onclick="return confirm('Estas a punto de eliminar este usuario ¿Eliminar?')">
+            		  <td><a class="btn btn-danger" href="{{ route('panel-de-administrador.users.destroy',$user->id) }}" onclick="return confirm('Estas a punto de eliminar este usuario ¿Eliminar?')">
   							<i class="fa fa-trash-o fa-lg"></i> Delete</a></td>
-  					  <td><a class="btn btn-warning" href="" onclick="return confirm('¿Editar usuario?')">
+  					  <td><a class="btn btn-warning" href="{{ route('panel-de-administrador.users.edit',$user->id) }}" onclick="return confirm('¿Editar usuario?')">
   							<i class="fa fa-files-o -o fa-lg"></i> Editar</a></td>
             		</tr>
             	@endforeach

@@ -40,12 +40,12 @@
   <div class='container'> 
 
     <div class="btn-group">
-      <a class="btn btn-primary" href=""><i class="fa fa-clipboard fa-fw"></i> Usuarios </a>
+      <a class="btn btn-primary" href="{{route('panel-de-administrador.users.index')}}"><i class="fa fa-clipboard fa-fw"></i> Usuarios </a>
       <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
         <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
       </a>
       <ul class="dropdown-menu">
-        <li><a href=""><i class="fa fa-pencil fa-fw"></i> a</a></li>
+        <li><a href="{{route('panel-de-administrador.users.create')}}"><i class="fa fa-pencil fa-fw"></i>Cear un Usuario nuevo</a></li>
         <li><a href="#"><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
         <li><a href="#"><i class="fa fa-ban fa-fw"></i> Ban</a></li>
         <li class="divider"></li>
@@ -88,6 +88,7 @@
   <div id="page-wrapper">
       <br>
       @include('flash::message')
+      @include('admin.errors')
       @yield('content')
   </div>
 </section>
