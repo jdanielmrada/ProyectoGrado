@@ -23,7 +23,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Tauro Gim Fitnnes</a>
+          <a class="navbar-brand" href="{{ route('inicio.auth.inicio')}}">Tauro Gim Fitnnes</a>
         </div>
           <form class="navbar-form navbar-right" role="search">
             <div class="form-group">
@@ -38,7 +38,7 @@
     <!--Menu del panel de administración-->
 
   <div class='container'> 
-
+  @if(Auth::user()->admin())
     <div class="btn-group">
       <a class="btn btn-primary" href="{{route('panel-de-administrador.users.index')}}"><i class="fa fa-clipboard fa-fw"></i> Usuarios </a>
       <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
@@ -52,7 +52,7 @@
         <li><a href="#"><i class="fa fa-unlock"></i> Make admin</a></li>
       </ul>
     </div>
-
+  @endif
  
       <div class="btn-group">
       <a class="btn btn-info" href=""><i class="fa fa-users fa-fw"></i> Clientes </a>
@@ -70,7 +70,7 @@
 
 
     <div class="btn-group navbar-right">
-      <a class="btn btn-default" href="#"><i class="fa fa-user fa-fw"></i></a>
+      <a class="btn btn-default" href="#"><i class="fa fa-user fa-fw"></i> {{Auth::user()->name }}</a>
       <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
         <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
       </a>
@@ -79,7 +79,7 @@
         <li><a href="" onclick="return confirm('¿Estas seguro de editar tu Contraseña?')"><i class="fa fa-trash-o fa-fw"></i> ¿ Cambiar contraseña? </a></li>
         <li><a href="#"><i class="fa fa-ban fa-fw"></i> Ban</a></li>
         <li class="divider"></li>
-        <li><a href=""><i class="fa fa-unlock"></i> Salir </a></li>
+        <li><a href="{{ route('inicio.auth.logout') }}"><i class="fa fa-unlock"></i> Salir </a></li>
       </ul>
     </div>
 <!--Fin del panel acministrador-->

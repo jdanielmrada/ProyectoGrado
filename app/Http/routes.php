@@ -14,11 +14,37 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::group(['prefix'=>'panel-de-administrador'], function(){
-	Route::resource('users','UsersController');
-	Route::get('users/{id}/destroy',[
-		'uses' => 'UsersController@destroy',
-		'as'	=> 'panel-de-administrador.users.destroy'
-		]);
+Route::group(['prefix'=>'panel-de-administrador', 'middleware'=>'auth'], function(){
+
+    Route::get('/', [
+        'uses'  => 'panelDeAdministradorController@index',
+        'as'    => 'inicio.auth.inicio'
+    ]); 
+
+    route::group(['middleware'=> 'admin'], function(){
+        Route::resource('users','UsersController');
+        Route::get('users/{id}/destroy',[
+            'uses' => 'UsersController@destroy',
+            'as'    => 'panel-de-administrador.users.destroy'
+            ]);
+    });
+	
 Route::resource('clientes','ClientesController');
 });
+
+//route de accesos##############
+
+Route::get('inicio/auth/login', [
+    'uses'  => 'Auth\AuthController@getLogin',
+    'as'    => 'inicio.auth.login'
+]);	
+
+Route::post('inicio/auth/login', [
+    'uses'  => 'Auth\AuthController@postLogin',
+    'as'    => 'inicio.auth.login'
+]);
+
+Route::get('inicio/auth/logout', [
+    'uses'  => 'Auth\AuthController@getLogout',
+    'as'    => 'inicio.auth.logout'
+]);

@@ -1,10 +1,11 @@
- <?php
+<?php
 
 namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
@@ -20,7 +21,7 @@ class AuthController extends Controller
     |
     */
 
-    use AuthenticatesAndRegistersUsers;
+    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     /**
      * Create a new authentication controller instance.
@@ -31,6 +32,8 @@ class AuthController extends Controller
     {
         $this->middleware('guest', ['except' => 'getLogout']);
     }
+    protected $redirectPath = '/panel-de-administrador/clientes';
+    protected $loginPath = '/';
 
     /**
      * Get a validator for an incoming registration request.
@@ -60,5 +63,12 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    protected function getLogin(){
+       return view('welcome'); 
+    }
+    protected function getInicio(){
+        return view('welcome');
     }
 }

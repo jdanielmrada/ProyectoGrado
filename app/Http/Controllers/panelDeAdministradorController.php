@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class ClientesController extends Controller
+class panelDeAdministradorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        return view('admin.cliente.index');
+        return view('welcome');
     }
 
     /**
@@ -26,7 +26,7 @@ class ClientesController extends Controller
      */
     public function create()
     {
-        return view('admin.cliente.create');
+        //
     }
 
     /**
@@ -37,7 +37,7 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        //
     }
 
     /**

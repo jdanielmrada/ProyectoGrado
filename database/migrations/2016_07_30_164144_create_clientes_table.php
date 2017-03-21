@@ -19,12 +19,11 @@ class CreateClientesTable extends Migration
             $table->string('nombre');
             $table->enum('sexo', ['Hombre','Mujer']);
             $table->string('antecedente');
-            $table->integer('telefono_id')->unsigned();
+            $table->string('telefono')->unique();
             $table->string('direction');
             $table->integer('user_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('telefono_id')->references('id')->on('telefonos')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

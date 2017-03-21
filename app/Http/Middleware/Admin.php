@@ -5,13 +5,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
-class Authenticate
+class Admin
 {
-    /**
-     * The Guard implementation.
-     *
-     * @var Guard
-     */
     protected $auth;
 
     /**
@@ -34,14 +29,10 @@ class Authenticate
      */
     public function handle($request, Closure $next)
     {
-        if ($this->auth->guest()) {
-            if ($request->ajax()) {
-                return response('Unauthorized.', 401);
-            } else {
-                return redirect()->route('inicio.auth.login');
-            }
-        }
-
-        return $next($request);
+        if($this->auth->user()->admin()){
+            return $next($request);
+        }else{
+            return redirect()->route('inicio.auth.login');
+        }       
     }
 }

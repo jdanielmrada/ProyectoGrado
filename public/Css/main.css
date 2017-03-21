@@ -60,7 +60,8 @@
 }
 
 .input-group .form-control{
- width: 30%;
+ width: 100%;
+ 
 }
 span h2
 {
@@ -69,8 +70,11 @@ span h2
 }
 #in input
 {
- margin: 20px;
+ margin-left: 20px;
 }
 #inicio .input-group  .form-control {
  width: 100%;
+}
+.div-s{
+	margin-left: 6%;
 }

@@ -43,7 +43,7 @@
         </fieldset>
         <br>
         <div class="input-group">
-          <button type="submit" id="SaveAccount" class="btn btn-primary" value="Submit form"><i class="fa fa-chevron-circle-right fa-lg"></i> Guardar</button>
+          {!! Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
         </div>
     {!! Form::close()!!}
   	  
