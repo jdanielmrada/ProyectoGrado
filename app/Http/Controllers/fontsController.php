@@ -53,6 +53,8 @@ class fontsController extends Controller
         $inscripcion=new Inscripcion($request->all());
         $inscripcion->cliente()->associate($cliente);
         $inscripcion->save();
+
+        
     }
 
     /**
