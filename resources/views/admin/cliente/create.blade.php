@@ -2,14 +2,14 @@
   @section('content')
 
   	<div class="container">
-    {!! Form::open(['route'=>'panel-de-administrador.clientes.store', 'method'=>'POST','id'=>'SignupForm'])!!}
+    {!! Form::open(['route'=>'panel-de-administrador.fonts.store', 'method'=>'POST','id'=>'SignupForm'])!!}
 
         <fieldset id="fieldset">
           <legend><h2>Datos de rutina</h2></legend>
 
         <div class="input-group margin-bottom-sm">
           <span for="inputNombre" class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
-          {!! Form::text('nambre',null,['class'=>'form-control','placeholder'=>'Nambres','required'])!!}
+          {!! Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Nombres','required'])!!}
         </div>
         <div class="input-group margin-bottom-sm">
           <span for="inputApellido" class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
@@ -39,6 +39,16 @@
               <span for="inputDirection" class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
               {!! Form::text('direction',null,['class'=>'form-control','placeholder'=>'Dirección','required'])!!}
             </div>
+            {!! Form::hidden('user_id', Auth::user()->id,['class'=>'form-control','placeholder'=>'Dirección','required'])!!}
+        <br>
+        </fieldset>
+        <fieldset id="fieldset">
+          <legend><h2>Datos de pagos</h2></legend>
+            <div class="input-group margin-bottom-sm">
+              <span for="inputPago" class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+              {!! Form::text('pago',null,['class'=>'form-control','placeholder'=>'inscripción','required'])!!}
+            </div>
+          
         <br>
         </fieldset>
         <br>

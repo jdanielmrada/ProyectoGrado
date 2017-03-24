@@ -30,6 +30,15 @@ Route::group(['prefix'=>'panel-de-administrador', 'middleware'=>'auth'], functio
     });
 	
 Route::resource('clientes','ClientesController');
+    Route::get('clientes/{id}/destroy',[
+        'uses' => 'ClientesController@destroy',
+        'as'    => 'panel-de-administrador.clientes.destroy'
+        ]);
+Route::resource('fonts','fontsController');
+    Route::get('fonts/{id}/destroy',[
+        'uses' => 'fontsController@destroy',
+        'as'    => 'panel-de-administrador.fonts.destroy'
+        ]);
 });
 
 //route de accesos##############

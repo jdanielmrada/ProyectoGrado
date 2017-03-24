@@ -8,10 +8,12 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Cliente;
+use App\Inscripcion;
+use App\Mensualidad;
 use Laracasts\Flash\Flash;
 use App\Http\Requests\UserRequest;
 
-class ClientesController extends Controller
+class fontsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,11 +22,7 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        $clientes= Cliente::orderBy('id','DESC')->paginate(10);
-        $clientes->each(function($clientes){
-            $clientes->user;
-        });
-        return view('admin.cliente.index')->with('clientes', $clientes);
+        //
     }
 
     /**
@@ -34,7 +32,10 @@ class ClientesController extends Controller
      */
     public function create()
     {
-        return view('admin.cliente.create');
+       
+        
+
+        
     }
 
     /**
@@ -45,11 +46,13 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
         $cliente=new Cliente($request->all());
         $cliente->save();
 
-        Flash::success("Ya ".$cliente->nombre." es parte de la familia Tauro");
-        return redirect()->route('panel-de-administrador.clientes.index');
+        $inscripcion=new Inscripcion($request->all());
+        $inscripcion->cliente()->associate($cliente);
+        $inscripcion->save();
     }
 
     /**
@@ -60,8 +63,7 @@ class ClientesController extends Controller
      */
     public function show($id)
     {
-        $cliente= Cliente::find($id);
-        return view('admin.cliente.detalle')->with('cliente', $cliente);
+        //
     }
 
     /**
