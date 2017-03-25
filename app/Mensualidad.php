@@ -8,7 +8,7 @@ class Mensualidad extends Model
 {
     protected $table='mensualidades';
 
-    protected $fillable= ['pago','inscripcion_id'];
+    protected $fillable= ['pagomes','mes','inscripcion_id'];
 
      public function inscripcion(){
         return $this->belongsTo('App\Inscripcion');

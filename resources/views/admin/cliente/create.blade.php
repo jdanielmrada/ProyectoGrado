@@ -48,7 +48,26 @@
               <span for="inputPago" class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
               {!! Form::text('pago',null,['class'=>'form-control','placeholder'=>'inscripción','required'])!!}
             </div>
-          
+            <div class="input-group margin-bottom-sm">
+              <span for="inputPagomes" class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+              {!! Form::text('pagomes',null,['class'=>'form-control','placeholder'=>'Mensualidad','required'])!!}
+            </div>
+            <div class="input-group margin-bottom-sm">
+               <span for="inputmes" class="input-group-addon"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i></span>
+              {!! Form::select('mes',['Enero'=> 'Enero',
+                                      'Febrero'=> 'Febrero',
+                                      'Marzo'=> 'Marzo',
+                                      'Abril'=> 'Abril',
+                                      'Mayo'=> 'Mayo', 
+                                      'Junio'=> 'Junio',
+                                      'Julio'=> 'Julio',
+                                      'Agosto'=> 'Agosto',
+                                      'Septiembre'=> 'Septiembre',
+                                      'Octubre'=> 'Octubre',
+                                      'Noviembre'=> 'Noviembre',
+                                      'Diciembre'=> 'Diciembre'
+                                      ], null, ['class'=>'form-control'])!!}
+            </div>
         <br>
         </fieldset>
         <br>

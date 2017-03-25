@@ -13,17 +13,15 @@ class UserTableSeeder extends Seeder
     {
 
         /*truncamiento utilizado para poder ejecutar refresh sin eliminar los datos y generar nuevos*/
-        DB::table('users')->truncate();
- 
-        factory(App\User::class)->create([
-            'name'=> 'jose',
-            'email'=> 'jdani9417@gmail.com',
-            'role'=> 'admind',
-            'password'=> 'admind'
+       DB::table('users')->insert([
+            'name'             => 'wilmer Ramirez',
+            'email'             => 'ramirez@gmail.com',
+            'password'         => bcrypt('1234'),
+            'role'  => 'admin',
+            
+        ]);
 
-            ]);
-
-        factory(App\User::class, 49)->create();
+        //factory(App\User::class, 49)->create();
 
     }
 }

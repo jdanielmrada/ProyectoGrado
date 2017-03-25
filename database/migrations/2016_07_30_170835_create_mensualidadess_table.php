@@ -14,7 +14,8 @@ class CreateMensualidadessTable extends Migration
     {
         Schema::create('mensualidades', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('pago');
+            $table->string('pagomes');
+            $table->string('mes');
             $table->integer('inscripcion_id')->unsigned();
             $table->timestamps();
 

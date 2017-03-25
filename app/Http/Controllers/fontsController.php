@@ -54,7 +54,12 @@ class fontsController extends Controller
         $inscripcion->cliente()->associate($cliente);
         $inscripcion->save();
 
-        
+        $mensualidad=new Mensualidad($request->all());
+        $mensualidad->inscripcion()->associate($inscripcion);
+        $mensualidad->save();
+
+        Flash::success("Ya ".$cliente->nombre." es parte de la familia Tauro");
+        return redirect()->route('panel-de-administrador.clientes.index');
     }
 
     /**
