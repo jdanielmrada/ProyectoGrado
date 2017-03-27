@@ -20,11 +20,7 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        $clientes= Cliente::orderBy('id','DESC')->paginate(10);
-        $clientes->each(function($clientes){
-            $clientes->user;
-        });
-        return view('admin.cliente.index')->with('clientes', $clientes);
+        return redirect()->route('panel-de-administrador.fonts.index');
     }
 
     /**
@@ -49,7 +45,7 @@ class ClientesController extends Controller
         $cliente->save();
 
         Flash::success("Ya ".$cliente->nombre." es parte de la familia Tauro");
-        return redirect()->route('panel-de-administrador.clientes.index');
+        return redirect()->route('<panel-de-administrador class="clientes index"></panel-de-administrador>');
     }
 
     /**
@@ -72,7 +68,8 @@ class ClientesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cliente= Cliente::find($id);
+        return view('admin.cliente.edit')->with('cliente', $cliente);
     }
 
     /**
@@ -84,7 +81,12 @@ class ClientesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cliente= Cliente::find($id);
+        $cliente->fill($request->all());
+        $cliente->save();
+
+        Flash::warning('El cliente '.$cliente->nombre. ' fue modificado de manera exitosa');
+        return redirect()->route('panel-de-administrador.clientes.show',$cliente->id);
     }
 
     /**
@@ -95,6 +97,10 @@ class ClientesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cliente= Cliente::find($id);
+        $cliente->delete();
+
+        Flash::warning('El cliente '.$cliente->nombre. ' fue eliminado de manera exitosa');
+        return redirect()->route('panel-de-administrador.clientes.show',$cliente->id);
     }
 }

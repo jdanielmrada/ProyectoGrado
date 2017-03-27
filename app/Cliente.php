@@ -8,7 +8,7 @@ class Cliente extends Model
 {
     protected $table= 'clientes';
 
-    protected $fillable= ['cedula','apellido','nombre','sexo','antecedente','telefono','direction','user_id'];
+    protected $fillable= ['cedula','apellido','nombre','sexo','antecedente','telefono','direction','user_id','inscripcion_id'];
 
 
     public function user(){
@@ -16,6 +16,7 @@ class Cliente extends Model
     } 
 
     public function inscripcion(){
-        return $this->hasOne('App\Inscripcion');
+    	return $this->belongsTo('App\Inscripcion');
     }
+
 }

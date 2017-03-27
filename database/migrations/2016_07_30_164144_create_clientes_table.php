@@ -22,9 +22,11 @@ class CreateClientesTable extends Migration
             $table->string('telefono')->unique();
             $table->string('direction');
             $table->integer('user_id')->unsigned();
+            $table->integer('inscripcion_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('inscripcion_id')->references('id')->on('inscripciones')->onDelete('cascade');
         });
     }
 

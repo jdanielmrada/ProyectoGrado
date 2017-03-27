@@ -8,9 +8,9 @@ class Mensualidad extends Model
 {
     protected $table='mensualidades';
 
-    protected $fillable= ['pagomes','mes','inscripcion_id'];
+    protected $fillable= ['pagomes','mes'];
 
-     public function inscripcion(){
-        return $this->belongsTo('App\Inscripcion');
-    } 
+     public function inscripciones(){
+        return $this->hasMany('App\Inscripcion');
+    }
 }

@@ -22,7 +22,12 @@ class fontsController extends Controller
      */
     public function index()
     {
-        //
+        $clientes= Cliente::orderBy('id','DESC')->paginate(10);
+        $clientes->each(function($clientes){
+            $clientes->user;
+            $clientes->inscripcion;
+        });
+        return view('admin.cliente.index')->with('clientes', $clientes);
     }
 
     /**
@@ -47,19 +52,19 @@ class fontsController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
-        $cliente=new Cliente($request->all());
-        $cliente->save();
-
+        $mensualidad=new Mensualidad($request->all());
+        $mensualidad->save();
+        
         $inscripcion=new Inscripcion($request->all());
-        $inscripcion->cliente()->associate($cliente);
+        $inscripcion->mensualidad()->associate($mensualidad);
         $inscripcion->save();
 
-        $mensualidad=new Mensualidad($request->all());
-        $mensualidad->inscripcion()->associate($inscripcion);
-        $mensualidad->save();
+        $cliente=new Cliente($request->all());
+        $cliente->inscripcion()->associate($inscripcion);
+        $cliente->save();
 
         Flash::success("Ya ".$cliente->nombre." es parte de la familia Tauro");
-        return redirect()->route('panel-de-administrador.clientes.index');
+        return redirect()->route('panel-de-administrador.fonts.index');
     }
 
     /**
