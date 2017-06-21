@@ -1,30 +1,67 @@
 @extends('admin.main')
   @section('content')
-
-  	<div class="container">
+  <br>
+  <br>
+  	
     {!! Form::open(['route'=>'panel-de-administrador.users.store', 'method'=>'POST'])!!}
-        <fieldset>
-        <legend><h2>Adicional nuevo Usuario...</h2></legend>
+        <div class="jumbotron formularios"> 
+         <div class="form-group">
+           {!! Form::label('email','Email') !!}
+           
+           {!! Form::email('email',null,['class'=>'form-control','placeholder'=>'email','required'])!!}
+         </div>
 
-        <div class="input-group margin-bottom-sm">
-          <span for="inputName" class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
-          {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Name/1er name y apell','required'])!!}
+         <div class="form-group">
+           {!! Form::hidden('password', 0000,['class'=>'form-control','required'])!!}
+         </div>
+
+         <div class="form-group">
+           {!! Form::label('role','Role') !!}
+            
+           {!! Form::select('role',['admin'=> 'Administrador','trainer'=>'Instructor','client'=>'Cliente'], null, ['class'=>'form-control'])!!}
+         </div>
+
+         <div class="form-group">
+          {!! Form::label('nombre','Nombre y Apellido') !!}
+          
+          {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Nombres','required'])!!}
         </div>
-        <div class="input-group margin-bottom-sm">
-           <span for="inputEmail" class="input-group-addon"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i></span>
-          {!! Form::email('email',null,['class'=>'form-control','placeholder'=>'Email','required'])!!}
+
+
+        <div class="form-group">
+          {!! Form::label('cedula','Cedula') !!}
+           
+          {!! Form::number('cedula',null,['class'=>'form-control','placeholder'=>'Cedula','required'])!!}
         </div>
-        <div class="input-group margin-bottom-sm">
-           <span for="inputPassword" class="input-group-addon"><i class="fa fa-key fa-fw" aria-hidden="true"></i></span>
-          {!! Form::password('password',['class'=>'form-control','placeholder'=>'password','required'])!!}
+
+        <div class="form-group">
+          {!! Form::label('sexo','Sexo') !!}
+           
+          {!! Form::select('sexo',['Hombre'=> 'Hombre', 'Mujer'=> 'Mujer'], null, ['class'=>'form-control'])!!}
         </div>
-        <legend><h4>Recuerda este usuario teandra acceso renstringido a "Usuarios"</h4> </legend>
-        <div class="input-group">
-           {!! Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
+        
+        <div class="form-group">
+        {!! Form::label('telefono','Telefono') !!}
+          
+          {!! Form::number('telefono',null,['class'=>'form-control','placeholder'=>'Telefono /casa/movil','required'])!!}
         </div>
-        </fieldset>
+        
+        <div class="form-group">
+          {!! Form::label('direction','Dirección') !!}
+          {!! Form::text('direction',null,['class'=>'form-control','placeholder'=>'Dirección','required'])!!}
+        </div>
+         <div class="form-group">
+          {!! Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
+        </div>
+      </div>
     {!! Form::close()!!}
   	  
   	</form>
-  	</div>
+
+  @endsection
+  @section('js')
+    <script>
+      $('.select-category').chosen();
+      $('.textarea-contet').trumbowyg();
+    </script>
   @endsection

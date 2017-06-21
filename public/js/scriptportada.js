@@ -15,7 +15,6 @@ $(document).ready(function() {
 
 		if(scrollTop < height){
 			$("section#contenedor_general").css({
-				"-webkit-filter": "blur("+ pixels + "px)",
 				"background-position": "center -" + pixels *10 + "px"
 			});
 		}

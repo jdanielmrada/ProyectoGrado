@@ -35,7 +35,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next)
     {
         if ($this->auth->check()) {
-            return redirect()->route('panel-de-administrador.clientes.index');
+            return redirect()->route('welcome.index');
         }
 
         return $next($request);

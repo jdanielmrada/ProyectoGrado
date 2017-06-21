@@ -1,198 +1,152 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('main')
 
-<head>
+@section('title','Inicio')
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title','Default')Panel de Administración</title>   
-    <link rel="stylesheet" type="text/css" href="{{asset('bootstrap/css/bootstrap.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('font-awesome-4.6.3/css/font-awesome.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('Css/mainportada.css')}}">
-</head>
-<body>
-	
-	<section id="contenedor_general">
-		<div class="container">
-			<ul class="nav nav-tabs">
-			 @if(Auth::user())
-					<li role="presentation">
-				    <a href="{{route('panel-de-administrador.clientes.index')}}"><h6>Tauro Gym Fitness C.A</h6></a>
-				  </li>
-				  <li role="presentation">
-						<button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModalInformacion">
-						     Mas información
-					   </button>
-				  </li>
-				  <div class="btn-group navbar-right">
-				    <a class="btn btn-default" href="#"><i class="fa fa-user fa-fw"></i> {{Auth::user()->name }}</a>
-				    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
-				      <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
-				    </a>
-				    <ul class="dropdown-menu">
-				      <li><a href="" onclick="return confirm('¿Deseas editar tu usuario?')"><i class="fa fa-pencil fa-fw"></i> Editar tus datos</a></li>
-				      <li><a href="" onclick="return confirm('¿Estas seguro de editar tu Contraseña?')"><i class="fa fa-trash-o fa-fw"></i> ¿ Cambiar contraseña? </a></li>
-				      <li><a href="#"><i class="fa fa-ban fa-fw"></i> Ban</a></li>
-				      <li class="divider"></li>
-				      <li><a href="{{ route('inicio.auth.logout') }}"><i class="fa fa-unlock"></i> Salir </a></li>
-				    </ul>
-				  </div>
-			 @else 
-				  <li role="presentation">
-				    <a href="#"><h6>Tauro Gym Fitness C.A</h6></a>
-				  </li>
-				  <li role="presentation">
-						<button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModalInformacion">
-						     Mas información
-					   </button>
-				  </li>
-				  <li role="presentation" class='navbar-right'>
-						<button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
-						     Ingresar
-					   </button>
-				  </li>
-			 @endif
-			</ul>
-		</div>
-		
-	</section>
-	<section>
-		<!-- Modal ingresar.-->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title" id="myModalLabel">Ingresar al sistema</h4>
-		      </div>
-		      <div class="modal-body">
-		       
-		            {!! Form::open(['route'=>'inicio.auth.login', 'method'=>'POST'])!!}
-		                <fieldset>
-		                <legend><h2></h2></legend>
-						
-		                <div class="input-group margin-bottom-md div-s">
-		                   <span for="inputEmail" class="input-group-addon"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i></span>
-		                  {!! Form::email('email',null,['class'=>'form-control','placeholder'=>'Email','required'])!!}
-		                </div>
-		                <div class="input-group margin-bottom-md div-s">
-		                   <span for="inputPassword" class="input-group-addon"><i class="fa fa-key fa-fw" aria-hidden="true"></i></span>
-		                  {!! Form::password('password',['class'=>'form-control','placeholder'=>'password','required'])!!}
-		                </div>
-		                <legend><h4>Si no estas registrado no podras ingresar al sistema"</h4> </legend>
-		                <div class="input-group">
-		                   {!! Form::submit('Ingresar',['class'=>'btn btn-primary'])!!}
-		                </div>
-		                </fieldset>
-		            {!! Form::close()!!}
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-danger	" data-dismiss="modal">Close</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-		<!--Fin del proceso model-->
-		<!-- Modal mas información.-->
-		<div class="modal fade" id="myModalInformacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title" id="myModalLabel">Mas Información</h4>
-		      </div>
-		      <div class="modal-body">
-		       
-		            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-danger	" data-dismiss="modal">Close</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-		<!--Fin del proceso model-->
-	</section>
-	 
-	<section id="body">
-		<section id="scrolldown">
-			<p id="titulo">Scroll Down</p>
-			<p id="menorque"><</p>
-		</section>
-		<section id="seccion">
-			<div id="container" class="container">
-				<div class="row">
-					<div id="footerUno" class="col-xs-12 col-sm-8">
-						<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-						  <!-- Indicators -->
-						  <ol class="carousel-indicators">
-						    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-						    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-						    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-						  </ol>
+@section('content-banner')
+  <div class="banner">
+      <div class="col-md-12">
+      	<div id="carousel-1" class="carousel slide" data-ride="carousel">
+      		<!--Indicadores-->
+      		<ol class="carousel-indicators">
+      			<li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+      			<li data-target="#carousel-1" data-slide-to="1"></li>
+      			<li data-target="#carousel-1" data-slide-to="2"></li>
+      		</ol>
+      		<!--Contenedor de los slider-->
+      		<div class="carousel-inner" role="listbox">
+      			<div class="item active">
+      				<img src="{{ asset('css/img/principal_neati.png') }}" class="img-responsive">
+      				<div class="carousel-caption hidden-xs hidden-sm ">
+      					<h3>neati</h3>
+      					<p>Entrenar es salud</p>
+      				</div>
+      			</div>
 
-						  <!-- Wrapper for slides -->
-						  <div class="carousel-inner" role="listbox">
-						    <div class="item active">
-						      <img src="{{ asset('Css/img/tauro.jpg.png') }}" alt="...">
-						      <div class="carousel-caption">
-						        <h3>...</h3>
-						            <p>...</p>
-						      </div>
-						    </div>
-						    <div class="item">
-						      <img src="{{ asset('Css/img/tauro.jpg.png') }}" alt="...">
-						      <div class="carousel-caption">
-						        <h3>...</h3>
-						            <p>...</p>
-						      </div>
-						    </div>
-							<div class="item">
-							  <img src="{{ asset('Css/img/tauro.jpg.png') }}" alt="...">
-							  <div class="carousel-caption">
-							    <h3>...</h3>
-							        <p>...</p>
-							  </div>
-							</div>
-						    
-						  </div>
+      			<div class="item">
+      				<img src="{{ asset('css/img/item2.jpg.png') }}" class="img-responsive">
+      				<div class="carousel-caption hidden-xs hidden-sm">
+      					<h3>El slider numero 2</h3>
+      					<p>Puedes conoser mas de nosotros</p>
+      				</div>
+      			</div>
 
-						  <!-- Controls -->
-						  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-						    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-						    <span class="sr-only">Previous</span>
-						  </a>
-						  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-						    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-						    <span class="sr-only">Next</span>
-						  </a>
-						</div>
-					</div>
-					<div id="footerDos" class="col-xs-12 col-sm-4">
-						 yyy
-					</div>
+      			<div class="item">
+      				<img src="{{ asset('css/img/item3.jpg') }}" class="img-responsive">
+      				<div class="carousel-caption hidden-xs hidden-sm">
+      					<h3>El slider numero 3</h3>
+      					<p>Puedes conoser mas de nosotros</p>
+      				</div>
+      			</div>
+      		</div>
+      		<!--Controles-->
+      		<a href="#carousel-1" class="left carousel-control" role="button" data-slide="prev">
+      			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      			<span class="sr-only">Anterior</span>
+      		</a>
+      		<a href="#carousel-1" class="right carousel-control" role="button" data-slide="next">
+      			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      			<span class="sr-only">Siguiente</span>
+      		</a>
+      	</div>
+      </div>
+  </div>
 
-				</div>
-			</div>
-		</section>
-	</section>
-	<script src="{{asset('bootstrap/js/jQuery.js')}}"></script>
-	<script src="{{asset('bootstrap/js/bootstrap.js')}}"></script>
-	<script src="{{asset('js/scriptportada.js')}}"></script>
-	<script src="{{asset('js/janko/formToWizard.js')}}"></script>
-	<script type="text/javascript">
-	    $(document).ready(function(){
-	        $("#SignupForm").formToWizard({ submitButton: 'SaveAccount' })
-	    });
-	</script>
-	<script src="{{asset('js/clonjs/jquery.addfield.js')}}"></script>
+  <div class="body">
+    <div class="row hidden-xs hidden-sm">
+    	<div class="col-md-4">
+    		<p class="list-inline text-center lead">Vision</p>
+    		<p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim aliquid itaque, modi, perspiciatis laboriosam ad eius expedita error officia inventore minus veniam cupiditate soluta non quasi hic doloremque natus sequi.</p>
+    	</div>
+    	<div class="col-md-4">
+    		<p class="list-inline text-center lead">Misión</p>
+    		<p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas dolor quam, quas id soluta nisi, iusto, sunt magni neque exercitationem qui facere ut. Rem voluptas dolores praesentium repellendus commodi, ullam.</p>
+    	</div>
+    	<div class="col-md-4">
+    		<p class="list-inline text-center lead">Valores</p>
+    		<p class="text-justify"><b>Honestidad:</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam fuga quis a consequatur aliquid explicabo corporis ratione repudiandae, natus velit, quae rerum reiciendis. Cupiditate asperiores minus expedita, tempora, ipsum praesentium.</p>
 
-</body>
+    		<p class="text-justify"><b>Calidad:</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit sequi accusamus, reiciendis, modi, explicabo minus quibusdam quisquam autem dignissimos asperiores debitis enim voluptate architecto incidunt illum illo vitae amet minima.</p>
 
-</html>
+    		<p class="text-justify"><b>Trabajo:</b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero ipsa ea sequi dicta repudiandae in dolor id placeat, possimus cumque magnam fugiat labore perferendis, doloribus repellat, assumenda culpa facere quos.</p>
+
+    		<p class="text-justify"><b>Responsabilidad:</b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque alias praesentium fugiat odit eveniet architecto numquam minus facilis, dicta repellat, dolore vel quo fugit amet tempore perspiciatis corporis sunt quos.</p>
+
+    		<p class="text-justify"><b>Confianza:</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, in voluptatum minima tempora dolorem iure consequatur obcaecati facilis, repellat hic voluptate porro fugit sed. Consequatur minima iusto laborum laudantium odit.</p>
+
+    		<p class="text-justify"><b>Seguridad:</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit. At ea saepe modi inventore dignissimos eaque, ut aperiam laudantium impedit earum autem libero, vel ratione, provident voluptate recusandae similique repellat reprehenderit.</p>
+    	</div>
+    </div>
+  	<div class="row hidden-md hidden-lg">
+  		<!--Acordion-->
+  		<div class="col-xs-12 panel-group" id="accordion" role="tablist">
+
+  			<div class="panel panel-default">
+  				<div class="panel-heading" role="tab" id="heading3">
+  					<h4 class="panel-title">
+  						<a href="#collapse1" data-toggle="collapse" data-parent="#accordion">
+  							Vision
+  						</a>
+  					</h4>
+  				</div>
+  				<div id="collapse1" class="panel-collapse collapse in">
+  					<div class="panel-body">
+  						<p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore exercitationem eius placeat adipisci harum, explicabo quisquam facere necessitatibus, dignissimos nisi esse sunt impedit ad eveniet quaerat cum unde dolorum porro.</p>
+  					</div>
+  				</div>
+  			</div>
+
+  			<div class="panel panel-default">
+  				<div class="panel-heading" role="tab" id="heading2">
+  					<h4 class="panel-title">
+  						<a href="#collapse2" data-toggle="collapse" data-parent="#accordion">
+  							Misión
+  						</a>
+  					</h4>
+  				</div>
+  				<div id="collapse2" class="panel-collapse collapse">
+  					<div class="panel-body">
+  						<p class="text-justify"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni quos fuga quidem saepe sunt ullam rem deleniti possimus optio voluptatibus laborum dolores molestiae maiores, necessitatibus, sint impedit accusamus laudantium libero.</p>
+  					</div>
+  				</div>
+  			</div>
+
+  			<div class="panel panel-default">
+  				<div class="panel-heading" role="tab" id="heading3">
+  					<h4 class="panel-title">
+  						<a href="#collapse3" data-toggle="collapse" data-parent="#accordion">
+  							Valores
+  						</a>
+  					</h4>
+  				</div>
+  				<div id="collapse3" class="panel-collapse collapse">
+  					<div class="panel-body">
+  						<p class="text-justify"><b>Honestidad:</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae eius a magni, voluptas ab, doloremque nisi accusamus inventore quis provident id consequatur amet nemo labore nesciunt et reprehenderit blanditiis hic.</p>
+
+  						<p class="text-justify"><b>Calidad:</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores doloribus dicta voluptatum fugiat iusto impedit sint maiores atque fuga necessitatibus, dolore alias magnam vel odio porro optio recusandae sunt quis.</p>
+
+  						<p class="text-justify"><b>Trabajo:</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam quo accusamus ad quibusdam, eius molestias suscipit excepturi adipisci commodi asperiores veniam praesentium error laboriosam. Magnam ipsam repudiandae debitis. Commodi, velit.</p>
+
+  						<p class="text-justify"><b>Responsabilidad:</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum at ducimus id earum obcaecati, qui veritatis cupiditate facere quaerat error ea dolore, maxime aliquid beatae minima ratione dolores ipsam voluptatibus!</p>
+
+  						<p class="text-justify"><b>Confianza:</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit ullam quibusdam recusandae, explicabo harum voluptate eligendi, in itaque fugit corporis nemo omnis incidunt nisi quae obcaecati perferendis. Illum et, quas!</p>
+
+  						<p class="text-justify"><b>Seguridad:</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, dolores, accusantium. Rerum itaque inventore quas unde ea? Voluptatem ullam, odit impedit, debitis autem nobis repudiandae aliquid, error nam eius totam.</p>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+
+  </div>
+
+  <div class="footer">
+
+
+  </div>
+@endsection
+@section('content-body')
+
+@endsection
+@section('content-footer')
+
+@endsection

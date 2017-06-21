@@ -14,10 +14,24 @@ class UserTableSeeder extends Seeder
 
         /*truncamiento utilizado para poder ejecutar refresh sin eliminar los datos y generar nuevos*/
        DB::table('users')->insert([
-            'name'             => 'wilmer Ramirez',
-            'email'             => 'ramirez@gmail.com',
-            'password'         => bcrypt('1234'),
-            'role'  => 'Administrador',
+            'email'             => 'jdani9417@gmail.com',
+            'password'          => bcrypt('1234'),
+            'role'              => 'admin',
+            'dato_id'           => '1'
+            
+        ]);
+       DB::table('users')->insert([
+            'email'             => 'jdani19417@gmail.com',
+            'password'          => bcrypt('1234'),
+            'role'              => 'trainer',
+            'dato_id'           => '1'
+            
+        ]);
+       DB::table('users')->insert([
+            'email'             => 'jdani29417@gmail.com',
+            'password'          => bcrypt('1234'),
+            'role'              => 'client',
+            'dato_id'           => '1'
             
         ]);
 

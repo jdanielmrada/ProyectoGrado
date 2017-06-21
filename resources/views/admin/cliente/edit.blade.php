@@ -2,7 +2,7 @@
   @section('content')
   
   	<div class="container">
-    {!! Form::open(['route'=>['panel-de-administrador.clientes.update',$cliente], 'method'=>'PUT','id'=>'SignupForm'])!!}
+    {!! Form::open(['route'=>['panel-de-administrador.cliente.update',$cliente], 'method'=>'PUT','id'=>'SignupForm'])!!}
 
         <fieldset id="fieldset">
           <legend><h2>Datos de {{ $cliente->nombre }}</h2></legend>

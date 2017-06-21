@@ -8,6 +8,16 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Cliente;
+use App\Mes;
+use App\Dato;
+use App\Mensualidad;
+use App\Inscripcion;
+use App\Peso_data;
+use App\Altura_data;
+use App\Altura;
+use App\Peso;
+use App\Costo;
+use App\Ano;
 use Laracasts\Flash\Flash;
 use App\Http\Requests\UserRequest;
 
@@ -20,7 +30,14 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        return redirect()->route('panel-de-administrador.fonts.index');
+        $clientes= Cliente::orderBy('id','DESC')->paginate(10);
+        $clientes->each(function($clientes){
+             $clientes->user;
+             $clientes->inscripcion;
+             $clientes->altura;
+             $clientes->pago;
+         });
+         return view('admin.cliente.index')->with('clientes', $clientes);
     }
 
     /**
@@ -30,7 +47,18 @@ class ClientesController extends Controller
      */
     public function create()
     {
-        return view('admin.cliente.create');
+        $mes= Mes::orderBy('id','ASC')->lists('mes','id');
+        $costo= Costo::orderBy('id','ASC')->lists('name','id');
+        $ano= Ano::orderBy('id','ASC')->lists('name','id');
+
+        $peso= Peso_data::orderBy('id','ASC')->lists('peso','id');
+        $altura= Altura_data::orderBy('id','ASC')->lists('altura','id');
+        return view('admin.cliente.create')
+                                        ->with('mes',$mes)
+                                        ->with('peso',$peso)
+                                        ->with('altura',$altura)
+                                        ->with('costo',$costo)
+                                        ->with('ano',$ano);
     }
 
     /**
@@ -41,11 +69,45 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
+        $dato= new Dato($request->all());
+        $dato->save();
+
+        $user = new User($request->all());
+        $user->password = bcrypt($request->password);
+        $user->dato()->associate($dato);
+        $user->save();
+
+        $mensualidad=new Mensualidad();
+        $mensualidad->save();
+
+        $mensualidad->meses()->sync($request->meses);
+        
+        $inscripcion=new Inscripcion();
+        $inscripcion->mensualidad()->associate($mensualidad);
+        $inscripcion->save();
+
+        $altura=new Altura();
+        $altura->save();
+
+        $altura->altura_detalles()->sync($request->alturas);
+
+        $peso=new Peso();
+        $peso->save();
+
+        $peso->peso_detalles()->sync($request->pesos);
+
+
+
         $cliente=new Cliente($request->all());
-        $cliente->save();
+        $cliente->user()->associate($user);
+        $cliente->inscripcion()->associate($inscripcion);
+        $cliente->peso()->associate($peso);
+        $cliente->altura()->associate($altura);
+        $cliente->save(); 
 
         Flash::success("Ya ".$cliente->nombre." es parte de la familia Tauro");
-        return redirect()->route('<panel-de-administrador class="clientes index"></panel-de-administrador>');
+        return redirect()->route('panel-de-administrador.clientes.index');
     }
 
     /**

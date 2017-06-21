@@ -6,11 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mensualidad extends Model
 {
-    protected $table='mensualidades';
+    protected $table='mensualidads';
 
-    protected $fillable= ['pagomes','mes'];
+    protected $fillable= ['ano_id','costo_id'];
 
-     public function inscripciones(){
-        return $this->hasMany('App\Inscripcion');
+    public function costo(){
+    	return $this->belongsTo('App\Costo');
+    }
+
+    public function ano(){
+    	return $this->belongsTo('App\Ano');
+    }
+
+    public function inscripciones(){
+        return $this->hasOne('App\Inscripcion');
+    }
+    public function meses(){
+    	return $this->belongsToMany('App\Mes');
     }
 }

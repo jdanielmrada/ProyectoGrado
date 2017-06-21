@@ -32,7 +32,8 @@ class Admin
         if($this->auth->user()->admin()){
             return $next($request);
         }else{
-            return redirect()->route('inicio.auth.login');
+            
+            return redirect()->route('welcome.ingreso');
         }       
     }
 }

@@ -1,81 +1,107 @@
 @extends('admin.main')
   @section('content')
-
-  	<div class="container">
-    {!! Form::open(['route'=>'panel-de-administrador.fonts.store', 'method'=>'POST','id'=>'SignupForm'])!!}
-
-        <fieldset id="fieldset">
-          <legend><h2>Datos de rutina</h2></legend>
-
-        <div class="input-group margin-bottom-sm">
-          <span for="inputNombre" class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
-          {!! Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Nombres','required'])!!}
+  <br>
+  <br>
+  	<div class="container container-formulario">
+    {!! Form::open(['route'=>'panel-de-administrador.clientes.store', 'method'=>'POST','class'=>''])!!}
+       <div class="jumbotron formularios"> 
+        <div class="form-group">
+          {!! Form::label('email','Email') !!}
+          
+          {!! Form::email('email',null,['class'=>'form-control','placeholder'=>'email','required'])!!}
         </div>
-        <div class="input-group margin-bottom-sm">
-          <span for="inputApellido" class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
-          {!! Form::text('apellido',null,['class'=>'form-control','placeholder'=>'Apellidos','required'])!!}
+
+        <div class="form-group">
+          {!! Form::hidden('password', 0000,['class'=>'form-control','required'])!!}
         </div>
-        <div class="input-group margin-bottom-sm">
-           <span for="inputCedula" class="input-group-addon"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i></span>
+
+        <div class="form-group">
+          {!! Form::hidden('role','client',['class'=>'form-control','required'])!!}
+        </div>
+
+        <div class="form-group">
+          {!! Form::label('antecedente_medico','Antecedente') !!}
+          
+          {!! Form::text('antecedente_medico',null,['class'=>'form-control','placeholder'=>'Antecedentes medicos','required'])!!}
+        </div>
+
+        <div class="form-group">
+          {!! Form::label('nombre','Nombre y Apellido') !!}
+          
+          {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Nombres','required'])!!}
+        </div>
+
+
+        <div class="form-group">
+          {!! Form::label('cedula','Cedula') !!}
+           
           {!! Form::number('cedula',null,['class'=>'form-control','placeholder'=>'Cedula','required'])!!}
         </div>
-        <div class="input-group margin-bottom-sm">
-           <span for="inputSexo" class="input-group-addon"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i></span>
+
+        <div class="form-group">
+          {!! Form::label('sexo','Sexo') !!}
+           
           {!! Form::select('sexo',['Hombre'=> 'Hombre', 'Mujer'=> 'Mujer'], null, ['class'=>'form-control'])!!}
         </div>
-        <br>
-        </fieldset>
-        <fieldset id="fieldset">
-          <legend><h2>Datos para entrenar</h2></legend>
-            <div class="input-group margin-bottom-sm">
-              <span for="inputAntecedente" class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
-              {!! Form::text('antecedente',null,['class'=>'form-control','placeholder'=>'Antecedente medico','required'])!!}
-            </div>
-            <div class="input-group margin-bottom-sm">
-              <span for="inputTelefono" class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
-              {!! Form::text('telefono',null,['class'=>'form-control','placeholder'=>'Telefono /casa/movil','required'])!!}
-            </div>
-            <div class="input-group margin-bottom-sm">
-              <span for="inputDirection" class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
-              {!! Form::text('direction',null,['class'=>'form-control','placeholder'=>'Dirección','required'])!!}
-            </div>
-            {!! Form::hidden('user_id', Auth::user()->id,['class'=>'form-control','placeholder'=>'Dirección','required'])!!}
-        <br>
-        </fieldset>
-        <fieldset id="fieldset">
-          <legend><h2>Datos de pagos</h2></legend>
-            <div class="input-group margin-bottom-sm">
-              <span for="inputPago" class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
-              {!! Form::text('pago',null,['class'=>'form-control','placeholder'=>'inscripción','required'])!!}
-            </div>
-            <div class="input-group margin-bottom-sm">
-              <span for="inputPagomes" class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
-              {!! Form::text('pagomes',null,['class'=>'form-control','placeholder'=>'Mensualidad','required'])!!}
-            </div>
-            <div class="input-group margin-bottom-sm">
-               <span for="inputmes" class="input-group-addon"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i></span>
-              {!! Form::select('mes',['Enero'=> 'Enero',
-                                      'Febrero'=> 'Febrero',
-                                      'Marzo'=> 'Marzo',
-                                      'Abril'=> 'Abril',
-                                      'Mayo'=> 'Mayo', 
-                                      'Junio'=> 'Junio',
-                                      'Julio'=> 'Julio',
-                                      'Agosto'=> 'Agosto',
-                                      'Septiembre'=> 'Septiembre',
-                                      'Octubre'=> 'Octubre',
-                                      'Noviembre'=> 'Noviembre',
-                                      'Diciembre'=> 'Diciembre'
-                                      ], null, ['class'=>'form-control'])!!}
-            </div>
-        <br>
-        </fieldset>
-        <br>
-        <div class="input-group">
+        
+        <div class="form-group">
+        {!! Form::label('telefono','Telefono') !!}
+          
+          {!! Form::number('telefono',null,['class'=>'form-control','placeholder'=>'Telefono /casa/movil','required'])!!}
+        </div>
+        
+        <div class="form-group">
+          {!! Form::label('direction','Dirección') !!}
+          {!! Form::text('direction',null,['class'=>'form-control','placeholder'=>'Dirección','required'])!!}
+        </div>
+         
+        {!! Form::hidden('creador', Auth::user()->email,['class'=>'form-control','required'])!!}   
+          
+        <div class="form-group">
+           {!! Form::label('peso','Peso') !!}
+          {!! Form::select('pesos[]',$peso, null, ['class'=>'form-control select-mes','multiple'])!!}
+        </div>
+
+        <div class="form-group">
+           {!! Form::label('altura','Altura') !!}
+          {!! Form::select('alturas[]',$altura, null, ['class'=>'form-control select-mes','multiple'])!!}
+        </div>
+
+        <div class="form-group">
+           {!! Form::label('costo','Costo de inscripción') !!}
+          {!! Form::select('costo',$costo, null, ['class'=>'form-control select-mes','multiple'])!!}
+        </div>
+
+        <div class="form-group">
+           {!! Form::label('costo','Costo de mensualidad') !!}
+          {!! Form::select('costo',$costo, null, ['class'=>'form-control select-mes','multiple'])!!}
+        </div>
+
+        <div class="form-group">
+           {!! Form::label('ano','Año') !!}
+          {!! Form::select('ano',$ano, null, ['class'=>'form-control select-mes','multiple'])!!}
+        </div>
+
+        <div class="form-group">
+           {!! Form::label('mes','Meses') !!}
+          {!! Form::select('meses[]',$mes, null, ['class'=>'form-control select-mes','multiple'])!!}
+        </div>    
+            
+        
+        <div class="form-group">
           {!! Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
         </div>
+      </div>
     {!! Form::close()!!}
   	  
   	</form>
   	</div>
   @endsection
+  @section('js')
+    <script>
+    $('.select-mes').chosen({
+      placeholder_text_multiple: 'seleciones los mese que el cliente quiere pagar'
+    });
+  </script>
+  @endsection
+  

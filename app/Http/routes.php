@@ -11,9 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Rutas frontend principales......
+
+Route::get('/',[
+    'as'=>'welcome.index',
+    'uses'=>'FrontController@index'
+    ]);
+Route::get('ingreso',[
+    'as'=>'welcome.ingreso',
+    'uses'=>'FrontController@ingreso'
+    ]);
+
+//Rutas admiistrador....
+
 Route::group(['prefix'=>'panel-de-administrador', 'middleware'=>'auth'], function(){
 
     Route::get('/', [
@@ -21,27 +31,71 @@ Route::group(['prefix'=>'panel-de-administrador', 'middleware'=>'auth'], functio
         'as'    => 'inicio.auth.inicio'
     ]); 
 
-    route::group(['middleware'=> 'admin'], function(){
-        Route::resource('users','UsersController');
-        Route::get('users/{id}/destroy',[
-            'uses' => 'UsersController@destroy',
-            'as'    => 'panel-de-administrador.users.destroy'
-            ]);
+    Route::group(['middleware'=> 'trainer'], function(){
+
+        route::group(['middleware'=> 'admin'], function(){
+            Route::resource('users','UsersController');
+            Route::resource('editinfors', 'UsersEditInforController');
+            Route::get('users/{id}/destroy',[
+                'uses' => 'UsersController@destroy',
+                'as'    => 'panel-de-administrador.users.destroy'
+                ]);
+            Route::get('users/{id}/informacion',[
+                'uses' => 'UsersController@informacion',
+                'as'    => 'panel-de-administrador.users.informacion'
+                ]);
+            Route::get('users/{id}/inforedit',[
+                'uses' => 'UsersController@inforedit',
+                'as'    => 'panel-de-administrador.users.inforedit'
+                ]);
+            Route::get('users/{id}/inforupdate',[
+                'uses' => 'UsersController@inforupdate',
+                'as'    => 'panel-de-administrador.users.inforupdate'
+                ]);
+        });
+
+	    Route::resource('clientes','ClientesController');
+            Route::get('clientes/{id}/destroy',[
+                'uses' => 'ClientesController@destroy',
+                'as'    => 'panel-de-administrador.clientes.destroy'
+                ]);
+        Route::resource('pagos','PagosController');
+            Route::get('pagos/{id}/meses',[
+                'uses' => 'PagosController@meses',
+                'as'    => 'panel-de-administrador.pagos.meses'
+                ]);
+        Route::resource('adicionpagos','AdicionesPagosController');
     });
-	
-Route::resource('clientes','ClientesController');
-    Route::get('clientes/{id}/destroy',[
-        'uses' => 'ClientesController@destroy',
-        'as'    => 'panel-de-administrador.clientes.destroy'
+
+    
+    Route::resource('categories','CategoriesController'); 
+        Route::get('categories/{id}/destroy',[
+            'uses'=> 'CategoriesController@destroy',
+            'as'  => 'panel-de-administrador.categories.destroy'
+            ]);
+    Route::resource('articles','ArticlesController');
+        Route::get('articles/{id}/destroy',[
+            'uses'=> 'ArticlesController@destroy',
+            'as'  => 'panel-de-administrador.articles.destroy'
+            ]);
+    Route::get('images',[
+            'uses'=> 'ImagesController@index',
+            'as'=> 'panel-de-administrador.images.index'
         ]);
-Route::resource('fonts','fontsController');
-    Route::get('fonts/{id}/destroy',[
-        'uses' => 'fontsController@destroy',
-        'as'    => 'panel-de-administrador.fonts.destroy'
-        ]);
+    Route::resource('mensajes','MensajesController');
+        Route::get('mensajes/{id}/destroy',[
+            'uses'=> 'MensajesController@destroy',
+            'as'  => 'panel-de-administrador.mensajes.destroy'
+            ]);
+    Route::resource('sessions','SessionsController');
+        Route::get('sessions/{id}/destroy',[
+            'uses'=> 'SessionsController@destroy',
+            'as'  => 'panel-de-administrador.sessions.destroy'
+            ]);
 });
 
-//route de accesos##############
+
+//Rutas de accesos##############
 
 Route::get('inicio/auth/login', [
     'uses'  => 'Auth\AuthController@getLogin',

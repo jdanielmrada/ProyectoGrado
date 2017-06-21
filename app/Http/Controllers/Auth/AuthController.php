@@ -32,8 +32,8 @@ class AuthController extends Controller
     {
         $this->middleware('guest', ['except' => 'getLogout']);
     }
-    protected $redirectPath = '/panel-de-administrador/fonts';
-    protected $loginPath = '/';
+    protected $redirectPath = '/';
+    protected $loginPath = '/ingreso';
 
     /**
      * Get a validator for an incoming registration request.

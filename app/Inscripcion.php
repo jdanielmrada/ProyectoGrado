@@ -6,9 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Inscripcion extends Model
 {
-    protected $table='inscripciones';
+    protected $table='inscripcions';
 
-    protected $fillable= ['pago','cliente_id','mensualidad_id'];
+    protected $fillable= ['mensualidad_id','costo_id'];
+
+    public function costo(){
+    	return $this->belongsTo('App\Costo');
+    }
 
     public function mensualidad(){
         return $this->belongsTo('App\Mensualidad');
