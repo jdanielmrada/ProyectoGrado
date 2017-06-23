@@ -8,17 +8,9 @@ class Mensualidad extends Model
 {
     protected $table='mensualidads';
 
-    protected $fillable= ['ano_id','costo_id'];
+    protected $fillable= ['fecha_corte_mensualidad'];
 
-    public function costo(){
-    	return $this->belongsTo('App\Costo');
-    }
-
-    public function ano(){
-    	return $this->belongsTo('App\Ano');
-    }
-
-    public function inscripciones(){
+    public function inscripcion(){
         return $this->hasOne('App\Inscripcion');
     }
     public function meses(){

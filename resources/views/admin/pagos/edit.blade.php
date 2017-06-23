@@ -10,12 +10,26 @@
         <div class="form-group">
            {!! Form::label('mes','Meses') !!}
           {!! Form::select('meses[]',$mes, $my_meses, ['class'=>'form-control select-mes','multiple'])!!}
-        </div>    
-        <div class="form-group">
-           {!! Form::hidden('mensualidad_id', $inscripcion->mensualidad_id,['class'=>'form-control','required'])!!}
-         </div>
+        </div>
+
          <div class="form-group">
-           {!! Form::hidden('inscripcion_id', $inscripcion->id,['class'=>'form-control','required'])!!}
+          {!! Form::label('fecha_corte_inscripcion','DDMMAA imensualidad') !!}
+          
+          {!! Form::text('fecha_corte_inscripcion',$inscripcion->fecha_corte_inscripcion,['class'=>'form-control','placeholder'=>'email','required'])!!}
+        </div>
+        
+        <div class="form-group">
+          {!! Form::label('fecha_corte_mensualidad','DDMMAA imensualidad') !!}
+          
+          {!! Form::text('fecha_corte_mensualidad',$inscripcion->mensualidad->fecha_corte_mensualidad,['class'=>'form-control','placeholder'=>'email','required'])!!}
+        </div>
+        
+        <div class="form-group">
+           {!! Form::hidden('cliente_id', $inscripcion->cliente_id,['class'=>'form-control','required'])!!}
+         </div>
+
+         <div class="form-group">
+           {!! Form::hidden('mensualidad_id', $inscripcion->mensualidad->id,['class'=>'form-control','required'])!!}
          </div>          
         
         <div class="form-group">

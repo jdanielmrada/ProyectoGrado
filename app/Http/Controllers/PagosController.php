@@ -91,13 +91,15 @@ class PagosController extends Controller
     public function update(Request $request, $id)
     {
         //dd($request->all());
-        $mensualidad= Mensualidad::find($id);
+        $mensualidad=Mensualidad::find($request->mensualidad_id);
+        $mensualidad->fecha_corte_mensualidad= $request->fecha_corte_mensualidad;
         $mensualidad->save();
 
         $mensualidad->meses()->sync($request->meses);
 
-        $inscripcion= Inscripcion::find($id);
-        $inscripcion->fill($request->all());
+        $inscripcion=new Inscripcion($request->all());
+        $inscripcion->cliente_id= $request->cliente_id;
+        $inscripcion->mensualidad_id= $request->mensualidad_id;
         $inscripcion->save();
 
         Flash::warning('El cliente '.$inscripcion->cliente->nombre. ' fue reinscrito en el sistema de manera exitosa');

@@ -12,40 +12,40 @@ class MesTableSeeder extends Seeder
     public function run()
     {
         DB::table('mes')->insert([
-             'mes'             => 'Enero', 
+             'mes'             => 'Enero 2017', 
          ]);
         DB::table('mes')->insert([
-             'mes'             => 'Febrero', 
+             'mes'             => 'Febrero 2017', 
          ]);
         DB::table('mes')->insert([
-             'mes'             => 'Marzo', 
+             'mes'             => 'Marzo 2017', 
          ]);
         DB::table('mes')->insert([
-             'mes'             => 'Abril', 
+             'mes'             => 'Abril 2017', 
          ]);
         DB::table('mes')->insert([
-             'mes'             => 'Mayo', 
+             'mes'             => 'Mayo 2017', 
          ]);
         DB::table('mes')->insert([
-             'mes'             => 'Junio', 
+             'mes'             => 'Junio 2017', 
          ]);
         DB::table('mes')->insert([
-             'mes'             => 'Julio', 
+             'mes'             => 'Julio 2017', 
          ]);
         DB::table('mes')->insert([
-             'mes'             => 'Agosto', 
+             'mes'             => 'Agosto 2017', 
          ]);
         DB::table('mes')->insert([
-             'mes'             => 'Septiembre', 
+             'mes'             => 'Septiembre 2017', 
          ]);
         DB::table('mes')->insert([
-             'mes'             => 'Octubre', 
+             'mes'             => 'Octubre 2017', 
          ]);
         DB::table('mes')->insert([
-             'mes'             => 'Noviembre', 
+             'mes'             => 'Noviembre 2017', 
          ]);
         DB::table('mes')->insert([
-             'mes'             => 'Diciembre', 
+             'mes'             => 'Diciembre 2017', 
          ]);
     }
 }

@@ -6,9 +6,16 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Article;
+use App\Category;
+use App\Image;
+use Carbon\Carbon;
 
 class FrontController extends Controller
 {
+    public function __construct(){
+        Carbon::setLocale('es');
+    }
    
     public function index()
     {
@@ -19,28 +26,32 @@ class FrontController extends Controller
         return view('ingreso');
     }
 
-    public function create()
+    public function galeria()
     {
-        //
+        $articles= Article::orderBy('id','DESC')->paginate(4);
+        $articles->each(function($articles){
+            $articles->images;
+        });
+        return view('galeria')->with('articles',$articles);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    public function searchCategory($name){
+        $category= Category::searchCategory($name)->first();
+        $articles= $category->articles()->paginate(4);
+
+        return view('galeria')->with('articles',$articles);
+    }
+
+    public function detalle($id){
+        $article= Article::find($id);
+        return view('detalle')->with('article', $article);
+    }
+
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //

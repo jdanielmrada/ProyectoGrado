@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCostosTable extends Migration
+class CreateMensualidadsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,12 @@ class CreateCostosTable extends Migration
      */
     public function up()
     {
-        Schema::create('costos', function (Blueprint $table) {
+        Schema::create('mensualidads', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            
+            $table->string('fecha_corte_mensualidad');
+
             $table->timestamps();
+
         });
     }
 
@@ -27,6 +28,6 @@ class CreateCostosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('costos');
+        Schema::drop('mensualidads');
     }
 }

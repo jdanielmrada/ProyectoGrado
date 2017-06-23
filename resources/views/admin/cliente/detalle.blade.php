@@ -45,7 +45,7 @@
          				 <td colspan=""><a class="btn btn-danger" href="{{ route('panel-de-administrador.clientes.destroy',$cliente->id) }}" onclick="return confirm('¿Esta conciente de eliminar a este usuario? Todo los datos de pagos tambien seran eliminados')">
     							<i class="fa fa-trash-o fa-lg"></i> Eliminar a {{ $cliente->user->dato->name }}  </a></td>
     
-    					  <td><a class="btn btn-warning" href="{{ route('panel-de-administrador.clientes.edit',$cliente->inscripcion->id) }}" onclick="return confirm('¿Desea realizar cambios en el cliente?')">
+    					  <td><a class="btn btn-warning" href="{{ route('panel-de-administrador.clientes.edit',$cliente->id) }}" onclick="return confirm('¿Desea realizar cambios en el cliente?')">
     							<i class="fa fa-files-o -o fa-lg"></i> Editar a {{ $cliente->user->dato->name }}</a></td>
                   <td></td>
             		</tr>

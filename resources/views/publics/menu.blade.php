@@ -10,7 +10,10 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="{{ route('panel-de-administrador.articles.index') }}" class="navbar-brand">neati</a>
+        @if(Auth::user()->admin())
+          <a href="{{ route('welcome.index') }}" class="navbar-brand">neati</a>
+        @endif
+        <a href="{{ route('panel-de-administrador.articles.create') }}" class="navbar-brand">neati</a>
       </div>
       
       <!--Inicio de Menu-->
@@ -18,16 +21,26 @@
         <ul class="nav navbar-nav">
           <li><a href="{{ route('welcome.index') }}">Inicio</a></li>
           <li class="dropdown">
-            <a href="{{ route('panel-de-administrador.categories.index') }}" class="dropdown-toggle" data-toggle="dropdown" role="button">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
             Categorias <span class="caret"></span> 
             </a>
             <ul class="dropdown-menu" role="menu">
-              
-                <li><a href=""></a></li>
+              @foreach($categories as $category)
+                <li><a href="{{ route('welcome.search.category', $category->name) }}">{{$category->name}}</a></li>
+              @endforeach
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+            Publicaciones <span class="caret"></span> 
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="{{ route('welcome.galeria') }}"> </a> Ver Todos</li>
+                <li><a href="{{ route('panel-de-administrador.articles.create') }}"> </a> Crear uno nuevo</li>
               
             </ul>
-            <li><a href="">Contactos</a></li>
-          </li>
+          </li> 
+          <li><a href="{{ route('welcome.contacto') }}">Contactos</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
 
@@ -73,7 +86,7 @@
       <div class="collapse navbar-collapse" id="navegacion-jd">
         <ul class="nav navbar-nav">
           <li><a href="{{ route('welcome.index') }}">Inicio</a></li> 
-          <li><a href="">Contactos</a></li>
+          <li><a href="{{ route('welcome.contacto') }}">Contactos</a></li>
           <li class="izquierda"><a href="{{ route('welcome.ingreso') }}">Ingresar</a></li>
         </ul>
 

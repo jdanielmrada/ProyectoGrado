@@ -21,6 +21,32 @@ Route::get('ingreso',[
     'as'=>'welcome.ingreso',
     'uses'=>'FrontController@ingreso'
     ]);
+Route::get('contacto',[
+    'as'=>'welcome.contacto',
+    'uses'=>'FrontController@contacto'
+    ]);
+
+Route::group(['middleware'=>'auth'], function(){
+    //Rutas de galerias########
+
+    Route::get('galeria',[
+        'as'=>'welcome.galeria',
+        'uses'=>'FrontController@galeria'
+        ]);
+    Route::get('empresa',[
+        'as'=>'welcome.empresa',
+        'uses'=>'FrontController@empresa'
+        ]);
+    Route::get('categories/{name}', [
+        'uses'=> 'FrontController@searchCategory',
+        'as'=> 'welcome.search.category'
+        ]);
+    Route::resource('sendsForms','SendsFormsController');
+    Route::get('articles-detalle/{id}/detalle',[
+        'uses'=> 'FrontController@detalle',
+        'as'  => 'panel-de-administrador.front.detalle'
+        ]);
+});
 
 //Rutas admiistrador....
 
@@ -92,6 +118,7 @@ Route::group(['prefix'=>'panel-de-administrador', 'middleware'=>'auth'], functio
             'uses'=> 'SessionsController@destroy',
             'as'  => 'panel-de-administrador.sessions.destroy'
             ]);
+    
 });
 
 

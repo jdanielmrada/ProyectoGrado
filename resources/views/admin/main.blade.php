@@ -44,27 +44,15 @@
                     <li><a href="{{ route('panel-de-administrador.clientes.index') }}">
                    Clientes</a></li>
                   @endif
-      
+                  @if(Auth::user()->admin())
                    <li><a href="{{ route('panel-de-administrador.categories.index') }}">
                    Categorias</a></li>
                    <li><a href="{{ route('panel-de-administrador.articles.index') }}">
                    Articulos</a></li>
-                   <li><a href="">
-                   Imagenes</a></li>
+
                    <li><a href="{{ route('panel-de-administrador.mensajes.index') }}">
                    Mensajes</a></li>
-                   <li class="dropdown menuinterno">
-                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Menu lateral<span class="caret"></span></a>
-                     <ul class="dropdown-menu">
-                       <li><a href="#">Action</a></li>
-                       <li><a href="#">Another action</a></li>
-                       <li><a href="#">Something else here</a></li>
-                       <li role="separator" class="divider"></li>
-                       <li><a href="#">Separated link</a></li>
-                       <li role="separator" class="divider"></li>
-                       <li><a href="#">One more separated link</a></li>
-                     </ul>
-                   </li>
+                   @endif
                  </ul>
                
                  <ul class="nav navbar-nav navbar-right">
@@ -109,22 +97,28 @@
                           <li><a href="{{ route('panel-de-administrador.clientes.index') }}">Inicio</a></li>
                         </ul>
                       @endif
+                      @if(Auth::user()->admin())
                       <ul class="nav nav-sidebar">
                         <li class="active"><a>Categorias <span class="sr-only">(current)</span></a></li>
                         <li><a href="{{ route('panel-de-administrador.categories.index') }}">Inicio</a></li>
                         <li><a href="{{ route('panel-de-administrador.categories.create') }}">Añadir categoria</a></li>
                       </ul>
+                      @endif
                       <ul class="nav nav-sidebar">
                         <li class="active"><a>Articulos <span class="sr-only">(current)</span></a></li>
+                        @if(Auth::user()->admin())
                         <li><a href="{{ route('panel-de-administrador.articles.index') }}">Inicio</a></li>
+                        @endif
                         <li><a href="{{ route('panel-de-administrador.articles.create') }}">Nuevo Articulo</a></li>
+                        @if(Auth::user()->admin())
                         <li>
+
                           <!-- Button trigger modal -->
                           <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
                            .........Buscar Articulo........
                           </button>
                         </li>
-                          
+                        @endif 
                           </ul>
                         </div>
                       </ul>

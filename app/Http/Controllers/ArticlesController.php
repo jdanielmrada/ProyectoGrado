@@ -85,7 +85,7 @@ class ArticlesController extends Controller
             
 
             Flash::success('Ha sido creado el articulo '.$article->title);
-            return redirect()->route('panel-de-administrador.articles.index'); 
+            return redirect()->route('welcome.galeria'); 
 
     }
 
@@ -129,7 +129,7 @@ class ArticlesController extends Controller
         $article->save();
 
         Flash::info('Editado el articulo '.$article->title);
-        return redirect()->route('panel-de-administrador.articles.index');
+        return redirect()->route('welcome.galeria');
     }
 
     /**

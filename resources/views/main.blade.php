@@ -32,7 +32,6 @@
                         </div>
                     </div>
                     
-        </a></p>
                   </div>
                 </section>
                 <header>

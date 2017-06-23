@@ -21,10 +21,6 @@
 						{!! Form::label('content','Contenido') !!}
 						{!! Form::textarea('content', $article->content, ['class'=>'form-control textarea-contet']) !!}
 					</div>
-					<div class="form-group">
-						{!! Form::label('content','Contenido') !!}
-						{!! Form::date('fechaProyecto', $article->fechaProyecto,['class'=>'form-control','placeholder'=>'Fecha del proyecto ','required']) !!}
-					</div>
 
 					<div class="input-group">
 					  {!! Form::submit('Agregar Articulo',['class'=>'btn btn-primary'])!!}

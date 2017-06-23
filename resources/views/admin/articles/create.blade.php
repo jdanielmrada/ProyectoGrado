@@ -11,7 +11,7 @@
 				{!! Form::open(['route'=>'panel-de-administrador.articles.store','method'=>'POST', 'files'=>true]) !!}
 					<div class="form-group">
 						{!! Form::label('image','Imagenes') !!}
-						{!! Form::file('image[]',['class'=>'btn btn-info multi', 'accept'=>'jpg|gif|png']) !!}
+						{!! Form::file('image[]',['class'=>'btn btn-info multi', 'accept'=>'jpg|gif|png|jpeg']) !!}
 
 					</div>
 					<div class="form-group">

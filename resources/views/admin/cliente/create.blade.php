@@ -12,7 +12,7 @@
         </div>
 
         <div class="form-group">
-          {!! Form::hidden('password', 0000,['class'=>'form-control','required'])!!}
+          {!! Form::hidden('password', '0000',['class'=>'form-control','required'])!!}
         </div>
 
         <div class="form-group">
@@ -68,18 +68,15 @@
         </div>
 
         <div class="form-group">
-           {!! Form::label('costo','Costo de inscripción') !!}
-          {!! Form::select('costo',$costo, null, ['class'=>'form-control select-mes','multiple'])!!}
+          {!! Form::label('fecha_corte_inscripcion','DDMMAA inscripción') !!}
+          
+          {!! Form::text('fecha_corte_inscripcion',null,['class'=>'form-control','placeholder'=>'email','required'])!!}
         </div>
 
         <div class="form-group">
-           {!! Form::label('costo','Costo de mensualidad') !!}
-          {!! Form::select('costo',$costo, null, ['class'=>'form-control select-mes','multiple'])!!}
-        </div>
-
-        <div class="form-group">
-           {!! Form::label('ano','Año') !!}
-          {!! Form::select('ano',$ano, null, ['class'=>'form-control select-mes','multiple'])!!}
+          {!! Form::label('fecha_corte_mensualidad','DDMMAA imensualidad') !!}
+          
+          {!! Form::text('fecha_corte_mensualidad',null,['class'=>'form-control','placeholder'=>'email','required'])!!}
         </div>
 
         <div class="form-group">

@@ -15,11 +15,14 @@ class CreateInscripcionsTable extends Migration
         Schema::create('inscripcions', function (Blueprint $table) {
             $table->increments('id');
 
+            $table->integer('cliente_id')->unsigned(); 
             $table->integer('mensualidad_id')->unsigned();
-            $table->string('costo');
+
+            $table->string('fecha_corte_inscripcion');
 
             $table->timestamps();
 
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade');
             $table->foreign('mensualidad_id')->references('id')->on('mensualidads')->onDelete('cascade');
         });
     }

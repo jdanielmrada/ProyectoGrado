@@ -15,8 +15,8 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
         
           $this->call('DatoTableSeeder');
-          $this->call('AnoTableSeeder');
-          $this->call('CotoTableSeeder');
+        //  $this->call('AnoTableSeeder');
+        //  $this->call('CotoTableSeeder');
           $this->call('UserTableSeeder');
           $this->call('MesTableSeeder');
           $this->call('PesoTableSeeder');

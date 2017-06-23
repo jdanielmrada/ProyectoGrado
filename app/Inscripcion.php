@@ -8,17 +8,13 @@ class Inscripcion extends Model
 {
     protected $table='inscripcions';
 
-    protected $fillable= ['mensualidad_id','costo_id'];
-
-    public function costo(){
-    	return $this->belongsTo('App\Costo');
-    }
+    protected $fillable= ['cliente_id','mensualidad_id','fecha_corte_inscripcion'];
 
     public function mensualidad(){
         return $this->belongsTo('App\Mensualidad');
     } 
 
     public function cliente(){
-        return $this->hasOne('App\Cliente');
+        return $this->belongsTo('App\Cliente');
     }
 }

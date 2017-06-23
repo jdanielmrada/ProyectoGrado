@@ -83,13 +83,14 @@ class AdicionesPagosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //dd($request->all());
-        $mensualidad=Mensualidad::find($id);
+        //dd($request->mensualidad_id);
+        $mensualidad=Mensualidad::find($request->mensualidad_id);
+        $mensualidad->fecha_corte_mensualidad= $request->fecha_corte_mensualidad;
         $mensualidad->save();
 
         $mensualidad->meses()->sync($request->meses);
 
-        $inscripcion= Inscripcion::find($id);
+        $inscripcion= Inscripcion::find($request->inscripcion_id);
         $inscripcion->fill($request->all());
         $inscripcion->save();
 
