@@ -78,7 +78,7 @@
 	margin-bottom: 0px;
 }
 .item{
-	height: 400px;
+	height: 450px;
 }
 .item img{
 	width: 100%;
@@ -92,6 +92,9 @@
 		margin-bottom: 0px;
 		margin-left: 0px;
 		margin-right: 0px;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		
 	}
 	.item{
 		height: 200px;
@@ -102,6 +105,71 @@
 	margin-left: 18px;
 	margin-right: 18px;
 	margin-top: 20px;
+}
+#bloqueTexto{
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	height: 500px;
+	margin: auto;
+	padding: auto;
+	position: relative;
+	width: 100%;
+}
+.imagenMuestra{
+	background-image: url(img/imagenMuestra2.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	height: 500px;
+	position: relative;
+	width: 99%;
+	margin-left: 11px;
+	margin-right: 23px; 
+}
+.imagenMuestra2{
+	background-image: url(img/imagenMuestra.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	height: 500px;
+	position: relative;
+	width: 99%;
+	margin-left: 11px;
+	margin-right: 23px; 
+}
+.imagenMuestra3{
+	background-image: url(img/imagenMuestra3.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	height: 500px;
+	position: relative;
+	width: 99%;
+	margin-left: 11px;
+	margin-right: 23px;
+	text-align: center; 
+}
+.centro{
+	margin-top: 100px;
+}
+.texto{
+	margin-top: 100px;
+	font-size: 1.5em;
+	color: red;
+}
+.textocontacto{
+	margin-top: 100px;
+	font-size: 1.5em;
+	color: #000;
+}
+.textoNeati{
+	color: #d820a1;
+	font-size: 2em;
+}
+.navbar-fixed-topi {
+  top: 150;
+  border-width: 0 0 1px;
 }
 
 

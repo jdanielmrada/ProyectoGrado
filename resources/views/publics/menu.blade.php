@@ -1,7 +1,7 @@
 <!--##Cuando estas loguiado####-->
 @if(Auth::user())
 
-  <nav class="navbar navbar-inverse" role="navigation">
+  <nav class="navbar navbar-inverse " role="navigation">
     <div class="container">
       <div class="nabvar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navegacion-jd">
@@ -11,13 +11,13 @@
           <span class="icon-bar"></span>
         </button>
         @if(Auth::user()->admin())
-          <a href="{{ route('welcome.index') }}" class="navbar-brand">neati</a>
+          <a href="{{ route('panel-de-administrador.articles.create') }}" class="navbar-brand">neati</a>
         @endif
-        <a href="{{ route('panel-de-administrador.articles.create') }}" class="navbar-brand">neati</a>
+        
       </div>
       
       <!--Inicio de Menu-->
-      <div class="collapse navbar-collapse" id="navegacion-jd">
+      <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li><a href="{{ route('welcome.index') }}">Inicio</a></li>
           <li class="dropdown">
@@ -36,7 +36,8 @@
             </a>
             <ul class="dropdown-menu" role="menu">
                 <li><a href="{{ route('welcome.galeria') }}"> </a> Ver Todos</li>
-                <li><a href="{{ route('panel-de-administrador.articles.create') }}"> </a> Crear uno nuevo</li>
+                <li><a href="{{ route('panel-de-administrador.articles.create') }}"> </a></li>
+                <li> Crear uno nuevo</li>
               
             </ul>
           </li> 
@@ -45,12 +46,15 @@
         <ul class="nav navbar-nav navbar-right">
 
                      <li class="dropdown espacio">
-                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user fa-fw"></i> {{Auth::user()->email }} <span class="caret"></span></a>
-                       <ul class="dropdown-menu">
-                         <li role="separator" class="divider"></li>
-                         <li><a href="{{ route('inicio.auth.logout') }}">Salir</a></li>
-                       </ul>
-                     </li>
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user fa-fw"></i> {{Auth::user()->email }} <span class="caret"></span></a>
+                     <ul class="dropdown-menu">
+                       <li><a href="{{ route('panel-de-administrador.sessions.edit',Auth::user()->id)}}">Cambiar Contraseña</a></li>
+                       <li><a href="#">Another action</a></li>
+                       <li><a href="#">Something else here</a></li>
+                       <li role="separator" class="divider"></li>
+                       <li><a href="{{ route('inicio.auth.logout') }}">Salir</a></li>
+                     </ul>
+                   </li>
         </ul>
 
      <!--   {!! Form::open(['route'=>'panel-de-administrador.users.index','method'=>'GET','class'=>'nabvar-form navbar-right','role'=>'search']) !!}
@@ -63,7 +67,6 @@
           </button>
             
         {!! Form::close() !!} -->
-      </div>
   
     </div>
   </nav>

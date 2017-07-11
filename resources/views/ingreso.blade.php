@@ -4,34 +4,27 @@
 
 @section('content-banner')
 
-  <div class="container">
-    <div class="row">
+  <div class="container imagenMuestra2">
+    <div class="row centro">
       <div class="col-md-4">
 
         <div class="jumbotron formularios">
-            
+
               <form id='inicio' class="" name="formulario_registro" method="POST" action="{{route('inicio.auth.login')}}">
             
             <div>
               <div class="imput-group">
-                  
-                  <input id="email" name='email' type="email" value="{{ old('email') }}">
-                  <label for="email">Email</label>
 
+                  <label for="email">Email</label>
+                  <input class="" id="email" name='email' type="email" value="{{ old('email') }}">
+                  
               </div>
             
               <div class="imput-group">
-                  
-                  <input  id="password" name='password' type="password">
+
                   <label for="password">Contraseña</label>
-
-              </div>
-
-              <div class="imput-group checkbox">
+                  <input  id="password" name='password' type="password">
                   
-                  <input  id="checkbox" name='terminos' type="terminos">
-                  <label for="terminos">Acepto los terminos y condiciones</label>
-
               </div>
 
               <input name="_token" value="{{csrf_token()}}" type="hidden">
@@ -40,7 +33,7 @@
                 <a href=""><samp>Olvidastes tu password?</samp></a>
                 <br>
                
-                  <input type="submit" id="btn-submit" value="Ingresar">
+                  <button class="btn btn-info" value="submit">Ingresar</button>
 
               </div>
             </div>

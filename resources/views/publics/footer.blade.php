@@ -4,7 +4,6 @@
         <section class="hidden-xs col-md-6">
             <ul class="nav navbar-nav">
                 <li><a href="">Inicio</a></li>
-                <li><a href="">Proyectos</a></li>
                 <li><a href="">Contactos</a></li>
             </ul>
         </section>

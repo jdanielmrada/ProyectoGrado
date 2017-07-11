@@ -14,7 +14,6 @@
         <link rel="stylesheet" type="text/css" href="{{asset('plugines/clean-slider/cleanSlider.css')}}">
         
     </head>
-    <body>
 		
 		    <body>
                 <section class="jumbotron jumbotron-header">
@@ -22,7 +21,8 @@
                     <div class="row">
                         <div class="col-md-6">
                             <h1 class="titulo-block"><img src="{{ asset('css/img/neati.png') }}" alt="" width="100">neati</h1>
-                            <h6>nUtrición y eNtrenamiento a Través de la tEcnologia iNformatica</h6>
+                           <h6>nUtrición y eNtrenamiento a Través de la tEcnologia iNformatica</h6>
+                            
                         </div>
 
                         <div class="col-md-6 hidden-xs hidden-sm text-right">

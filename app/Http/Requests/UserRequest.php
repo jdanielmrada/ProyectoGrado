@@ -24,8 +24,10 @@ class UserRequest extends Request
     public function rules()
     {
         return [
-            'name'=> 'min:4|max:40|required',
-            'email'=> 'min:8|max:50|unique:users|required'
+            'name' => 'min:8|max:40|required',
+            'email'=> 'min:6|max:55|unique:users|required',
+            'pass'=>'min:4|max:8|required',
+            'cedula' => 'min:6|max:7|unique:datos|required'
         ];
     }
 }

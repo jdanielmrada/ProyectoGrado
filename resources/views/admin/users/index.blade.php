@@ -31,6 +31,8 @@
             		  <td>{{ $user->created_at }}</td>
             		  <td>{{ $user->updated_at->diffForHumans() }}</td>
             		  
+                  <td><a class="btn btn-danger" href="{{ route('PDFS.show',$user->id) }}"> Imprimir</a></td>
+
   					      <td><a class="btn btn-info" href="{{ route('panel-de-administrador.users.informacion',$user->id) }}">
   							<i class="fa fa-files-o -o fa-lg"></i> Información</a></td>
 

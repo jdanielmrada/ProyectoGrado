@@ -25,6 +25,9 @@ Route::get('contacto',[
     'as'=>'welcome.contacto',
     'uses'=>'FrontController@contacto'
     ]);
+//Rutas de imprimir........
+
+Route::resource('PDFS','PDFController');
 
 Route::group(['middleware'=>'auth'], function(){
     //Rutas de galerias########
@@ -33,6 +36,10 @@ Route::group(['middleware'=>'auth'], function(){
         'as'=>'welcome.galeria',
         'uses'=>'FrontController@galeria'
         ]);
+    Route::get('contacto',[
+    'as'=>'welcome.contacto',
+    'uses'=>'FrontController@contacto'
+    ]);
     Route::get('empresa',[
         'as'=>'welcome.empresa',
         'uses'=>'FrontController@empresa'
@@ -93,7 +100,6 @@ Route::group(['prefix'=>'panel-de-administrador', 'middleware'=>'auth'], functio
         Route::resource('adicionpagos','AdicionesPagosController');
     });
 
-    
     Route::resource('categories','CategoriesController'); 
         Route::get('categories/{id}/destroy',[
             'uses'=> 'CategoriesController@destroy',
@@ -113,6 +119,7 @@ Route::group(['prefix'=>'panel-de-administrador', 'middleware'=>'auth'], functio
             'uses'=> 'MensajesController@destroy',
             'as'  => 'panel-de-administrador.mensajes.destroy'
             ]);
+    Route::resource('sendsForms','SendsFormsController');
     Route::resource('sessions','SessionsController');
         Route::get('sessions/{id}/destroy',[
             'uses'=> 'SessionsController@destroy',

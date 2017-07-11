@@ -22,6 +22,11 @@ class FrontController extends Controller
         return view('welcome');
     }
 
+    public function contacto()
+    {
+        return view('contacto');
+    }
+
     public function ingreso(){
         return view('ingreso');
     }

@@ -36,7 +36,7 @@
                     <i class="fa fa-files-o -o fa-lg"></i> Pagos</a>
                   </td>
                   @endforeach
-       					
+       				 <td><a class="btn btn-danger" href="{{ route('PDFS.edit',$cliente->id) }}"> Imprimir</a></td>
        				 <td><a class="btn btn-info" href="{{ route('panel-de-administrador.clientes.show',$cliente->id) }}" onclick="return confirm('¿Visualizar los datos personales?')">
   							<i class="fa fa-trash-o fa-lg"></i> Detalles</a></td>
   

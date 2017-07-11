@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Dato;
 use Laracasts\Flash\Flash;
 use Carbon\Carbon;
-use App\Http\Requests\UserRequest;
 
 class UsersController extends Controller
 {
@@ -56,6 +56,7 @@ class UsersController extends Controller
         $user->password = bcrypt($request->password);
         $user->dato()->associate($dato);
         $user->save();
+
 
         Flash::success("Ya ".$user->name." es parte de la familia Tauro");
         return redirect()->route('panel-de-administrador.users.index');
