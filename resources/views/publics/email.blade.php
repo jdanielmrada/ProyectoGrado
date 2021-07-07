@@ -22,7 +22,7 @@
             <div class="col-sm-5">
                 <div class="form-group">
                     <label>Mensaje *</label>
-                    <textarea name="mensaje" id="message" required="required" class="form-control" rows="8"></textarea>
+                    <textarea name="mensage" id="message" required="required" class="form-control" rows="8"></textarea>
                 </div>                        
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg" required="required">Enviar mensaje</button>

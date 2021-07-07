@@ -35,8 +35,8 @@
 	             	<a href="{{ route('panel-de-administrador.front.detalle',$article->id) }}" class="btn btn-primary">Visualizar</a>
 
 	             	@if((Auth::user()->email == $article->user->email) || (Auth::user()->admin() ))
-	             	<a href="{{ route('panel-de-administrador.articles.edit',$article->id) }}" class="btn btn-warning">Editar</a>
-	             	<a href="{{ route('panel-de-administrador.articles.destroy',$article->id) }}" class="btn btn-danger">Eliminar</a>
+	             	<a href="{{ route('panel-de-administrador.clientTrainers.edit',$article->id) }}" class="btn btn-warning">Editar</a>
+	             	<a href="{{ route('panel-de-administrador.clientTrainers.destroy',$article->id) }}" class="btn btn-danger">Eliminar</a>
 	             	@endif
 
 	             </div>

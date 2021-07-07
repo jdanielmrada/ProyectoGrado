@@ -14,10 +14,10 @@ class SendsFormsController extends Controller
 
     public function store(Request $request)
     {
-        Mail::send('email.contacto',$request->all(),function($msj){
+     /*   Mail::send('email.contacto',$request->all(),function($msj){
             $msj->subject('Correo de contacto');
             $msj->to('jdani9417@gmail.com');
-        });
+        });*/
 
         $mensaje= new Mensaje($request->all());
         $mensaje->save();

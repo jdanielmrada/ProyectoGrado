@@ -12,13 +12,13 @@
          </div>
 
          <div class="form-group">
-           {!! Form::hidden('password', 0000,['class'=>'form-control','required'])!!}
+           {!! Form::hidden('password','000000',['class'=>'form-control','required'])!!}
          </div>
 
          <div class="form-group">
            {!! Form::label('role','Role') !!}
             
-           {!! Form::select('role',['admin'=> 'Administrador','trainer'=>'Instructor','client'=>'Cliente'], null, ['class'=>'form-control'])!!}
+           {!! Form::select('role',['admin'=> 'Administrador','trainer'=>'Instructor'], null, ['class'=>'form-control'])!!}
          </div>
 
          <div class="form-group">

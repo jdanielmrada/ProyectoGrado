@@ -158,8 +158,9 @@
 <!--##########VISTAS DE LOS PANELES##############--> 
 
                         <section>
-                            @include ('errors.validacion')
+                            
                             @yield('content')
+                            @include ('errors.validacion')
                         </section>  
 
                         <footer>

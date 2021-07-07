@@ -3,8 +3,8 @@
     <div class="row">
         <section class="hidden-xs col-md-6">
             <ul class="nav navbar-nav">
-                <li><a href="">Inicio</a></li>
-                <li><a href="">Contactos</a></li>
+                <li><a href="{{route('welcome.index')}}">Inicio</a></li>
+                <li><a href="{{route('welcome.contacto')}}">Contactos</a></li>
             </ul>
         </section>
         <section class="col-sm-12 col-md-6 text-right">
@@ -34,21 +34,5 @@
     <div class="container parrafo">
         
         <p class="list-inline text-center">José Daniel Mejias - CyberPanther <span>&copy; 2017</span></p>
-        <p>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <a class="btn btn-block btn-social btn-twitter">
-                          <span class="fa fa-twitter"></span> Sign in with Twitter
-                        </a>
-                    </div>
-                    <div class="col-md-6">
-                        <a class="btn btn-block btn-social btn-twitter">
-                          <span class="fa fa-twitter"></span> Sign in with Twitter
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </p>
     </div>
 </nav>

@@ -12,6 +12,8 @@
         </button>
         @if(Auth::user()->admin())
           <a href="{{ route('panel-de-administrador.articles.create') }}" class="navbar-brand">neati</a>
+        @else
+          <a href="{{ route('panel-de-administrador.clientTrainers.index') }}" class="navbar-brand">neati</a>
         @endif
         
       </div>
@@ -35,9 +37,9 @@
             Publicaciones <span class="caret"></span> 
             </a>
             <ul class="dropdown-menu" role="menu">
-                <li><a href="{{ route('welcome.galeria') }}"> </a> Ver Todos</li>
-                <li><a href="{{ route('panel-de-administrador.articles.create') }}"> </a></li>
-                <li> Crear uno nuevo</li>
+                <li><a href="{{ route('welcome.galeria') }}">Ver Todos</a></li>
+                <li><a href="{{ route('panel-de-administrador.articles.create') }}"> Crear uno nuevo</a></li>
+                <li></li>
               
             </ul>
           </li> 

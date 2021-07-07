@@ -26,8 +26,9 @@ class UserRequest extends Request
         return [
             'name' => 'min:8|max:40|required',
             'email'=> 'min:6|max:55|unique:users|required',
-            'pass'=>'min:4|max:8|required',
-            'cedula' => 'min:6|max:7|unique:datos|required'
+            'password'=>'min:4|max:12|required',
+            'cedula' => 'min:6|max:8|unique:datos|required',
+            'telefono'=>'min:11|max:11|unique:datos|required'
         ];
     }
 }
